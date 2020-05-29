@@ -2,6 +2,7 @@
 <?php
 if(($_POST['add']))
 {
+    $errmsg = $sql = "";
     $category_name = trim($_POST['category_name']);
 
     $sql = "SELECT category_name FROM categories";
@@ -21,10 +22,12 @@ if(($_POST['add']))
     if(mysqli_query($conn, $sql)==TRUE)
     {
         header('location:category.php?err=' .urldecode('Category added sucessfully'));
-    }
+    echo "<script>alert('$message');</script>
+	
+	}
     else {
-    echo "<span style='color:red;'>Wrong</span>";
-     }
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
     $conn->close();
 
 }
