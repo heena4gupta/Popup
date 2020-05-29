@@ -22,7 +22,9 @@ if(($_POST['add']))
     if(mysqli_query($conn, $sql)==TRUE)
     {
         header('location:category.php?err=' .urldecode('Category added sucessfully'));
-    echo "<script>alert('$message');</script>
+    
+	 $message = 'Category added sucessfully';
+	 echo "<script>alert('$message');</script>
 	
 	}
     else {
