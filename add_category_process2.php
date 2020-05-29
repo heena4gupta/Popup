@@ -18,12 +18,12 @@ if(($_POST['add']))
         }
 		if($sql==true)
     {
-        $message = 'Category Added Successfully';
-		echo "<script type='text/javascript'>alert('$message');</script>";
-    header("Location:add_category.php?message={$message}");}
+        $status = 'Category Added Successfully';
+		header("location:add_category.php?status=".$status."");
+		}
     else
     {
-     echo "<span style='color:red;'>Please register before login..!</span>";
+     echo "<span style='color:red;'>Wrong</span>";
         exit();
         
     }
