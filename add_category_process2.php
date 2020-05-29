@@ -2,7 +2,7 @@
 <?php
 if(($_POST['add']))
 {
-   $category_name = trim($_POST['category_name']);
+    $category_name = trim($_POST['category_name']);
 
     $sql = "SELECT category_name FROM categories";
     $result = $conn->query($sql);
@@ -18,7 +18,8 @@ if(($_POST['add']))
         }
     }
     $sql = "INSERT INTO categories (category_name) VALUES "."('".$category_name."')";
-     if($sql==true) {
+    if(mysqli_query($conn, $sql)==TRUE)
+    {
         header('location:category.php?err=' .urldecode('Category added sucessfully'));
     }
     else {
