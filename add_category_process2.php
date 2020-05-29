@@ -2,7 +2,7 @@
 <?php
 if(($_POST['add']))
 {
-    $category_name = trim($_POST['category_name']);
+   $category_name = trim($_POST['category_name']);
 
     $sql = "SELECT category_name FROM categories";
     $result = $conn->query($sql);
@@ -16,20 +16,14 @@ if(($_POST['add']))
             }
 
         }
-		if($sql==true)
-    {
-        $message = 'Category Added Successfully';
-		echo "<script type='text/javascript'>alert('$message');</script>";
-    }
-    else
-    {
-     echo "<span style='color:red;'>Wrong</span>";
-        exit();
-        
-    }
     }
     $sql = "INSERT INTO categories (category_name) VALUES "."('".$category_name."')";
-    
+     if($sql==true) {
+        header('location:category.php?err=' .urldecode('Category added sucessfully'));
+    }
+    else {
+    echo "<span style='color:red;'>Wrong</span>";
+     }
     $conn->close();
 
 }
