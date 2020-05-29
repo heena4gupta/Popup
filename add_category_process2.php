@@ -11,12 +11,16 @@ if(($_POST['add']))
         while($row = $result->fetch_assoc()) {
             if($category_name == $row["category_name"])
             {
-                  $message = 'Category Added Successfully';
+                header('Location:add_category.php?err=' .urlencode('category already exist'));
+                exit();
+            }
+
+        }
+		if($sql==true)
+    {
+        $message = 'Category Added Successfully';
 		echo "<script type='text/javascript'>alert('$message');</script>";
-   
-   header('Location:add_category.php?err=' .urlencode('category already exist'));
-          
-     }
+    header("Location:add_category.php?message={$message}");}
     else
     {
      echo "<span style='color:red;'>Please register before login..!</span>";
