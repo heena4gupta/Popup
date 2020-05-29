@@ -2,7 +2,6 @@
 <?php
 if(($_POST['add']))
 {
-    $errmsg = $sql = "";
     $category_name = trim($_POST['category_name']);
 
     $sql = "SELECT category_name FROM categories";
@@ -17,11 +16,10 @@ if(($_POST['add']))
             }
 
         }
-    }
-    $sql = "INSERT INTO categories (category_name) VALUES "."('".$category_name."')";
-    if($sql==true)
+		if($sql==true)
     {
         $message = 'Category Added Successfully';
+		echo "<script type='text/javascript'>alert('$message');</script>";
     }
     else
     {
@@ -29,6 +27,9 @@ if(($_POST['add']))
         exit();
         
     }
+    }
+    $sql = "INSERT INTO categories (category_name) VALUES "."('".$category_name."')";
+    
     $conn->close();
 
 }
