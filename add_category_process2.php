@@ -18,9 +18,9 @@ if(($_POST['add']))
         }
 		if($sql==true)
     {
-        $status = 'Category Added Successfully';
-		header("location:add_category.php?status=".$status."");
-		}
+        $message = 'Category Added Successfully';
+		echo "<script type='text/javascript'>alert('$message');</script>";
+    }
     else
     {
      echo "<span style='color:red;'>Wrong</span>";
