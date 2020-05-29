@@ -8,8 +8,8 @@ $i= 1;
 ?>
 <?php include 'adminheader.php'; ?>
 
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -242,7 +242,6 @@ $i= 1;
                 </tr>
             </tbody>
         </table>
-
-    </div>
+		</div>
 </body>
 </html>
