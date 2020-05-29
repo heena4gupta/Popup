@@ -25,8 +25,8 @@ if(($_POST['add']))
 	  $message = 'Category added sucessfully';
 	 echo "<script>alert('$message');</script>}
     else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+        echo "<span style='color:red;'>wrong</span>";
+       }
     $conn->close();
 
 }
